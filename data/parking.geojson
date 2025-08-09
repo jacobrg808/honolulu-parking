@@ -1,0 +1,465 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -157.8618336377179,
+                    21.31196228281888
+                ]
+            },
+            "properties": {
+                "name": "Smith & Pauahi Parking",
+                "address": "1125 Smith St. & 41 N. Pauahi St.",
+                "rates": "$4 per 2 hours (max 6 hours $16)",
+                "hours": "24/7 - 6am-4pm $4/2hr, 4pm-6am $5/hr",
+                "monthly": "No monthly permits available",
+                "height": "Open lot, no height restrictions",
+                "type": "Open lot",
+                "phone": "808-592-7275"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -157.86158474064587,
+                    21.313304738269014
+                ]
+            },
+            "properties": {
+                "name": "1188 Maunakea St.",
+                "address": "1188 Maunakea St.",
+                "rates": "$3 per hour",
+                "hours": "24/7",
+                "monthly": "$210 monthly permit",
+                "height": "Open lot, no height restrictions",
+                "type": "Open lot",
+                "phone": "808-592-7275"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -157.8622363332728,
+                    21.31253576290676
+                ]
+            },
+            "properties": {
+                "name": "Pauahi & Maunakea",
+                "address": "1131 Maunakea St.",
+                "rates": "$4 per hour ($5/hr Fri & Sat after 5pm)",
+                "hours": "24/7",
+                "monthly": "No monthly parking",
+                "height": "Open lot, no height restrictions",
+                "type": "Open lot",
+                "phone": "808-592-7275"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -157.86327651251713,
+                    21.308884644447282
+                ]
+            },
+            "properties": {
+                "name": "Oceanit Center",
+                "address": "828 Fort Street Mall",
+                "rates": "$8/hour, $25 all day",
+                "hours": "Tenants only",
+                "monthly": "N/A",
+                "height": "6'2\"",
+                "type": "Garage",
+                "phone": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -157.86274230963542,
+                    21.30925805979265
+                ]
+            },
+            "properties": {
+                "name": "Pioneer Plaza",
+                "address": "900 Fort Street Mall",
+                "rates": "$4 per half hour, $40 all day",
+                "hours": "After hours: $5 from 5:00 pm",
+                "monthly": "$288 unreserved",
+                "height": "6'2\"",
+                "type": "Garage",
+                "phone": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -157.85806295384901,
+                    21.31082753938845
+                ]
+            },
+            "properties": {
+                "name": "Capitol Place",
+                "address": "1200 Queen Emma St.",
+                "rates": "$3 per half hour, $48 for 24 hours",
+                "hours": "Mon-Fri 6am-5pm, Early bird $15 (in by 9am out by 6pm)",
+                "monthly": "$275 permit only, $220 monthly special",
+                "height": "N/A",
+                "type": "Garage",
+                "phone": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -157.8588,
+                    21.3092
+                ]
+            },
+            "properties": {
+                "name": "Alakea Corporate Tower",
+                "address": "1100 Alakea St.",
+                "rates": "Varies",
+                "hours": "Unmanned lot",
+                "monthly": "Varies - Waitlist",
+                "height": "6'4\"",
+                "type": "Garage",
+                "phone": "808-509-8600"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -157.8592479654184,
+                    21.305173506743525
+                ]
+            },
+            "properties": {
+                "name": "Kekuanaoa Building",
+                "address": "465 S. King St. & Punchbowl St.",
+                "rates": "$2/hour first 2 hours, $4/hour thereafter",
+                "hours": "24 hours - 40 stalls",
+                "monthly": "Employees only - waitlist",
+                "height": "6'0\"",
+                "type": "Garage",
+                "phone": "808-586-0343"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -157.86157774801407,
+                    21.306648318461697
+                ]
+            },
+            "properties": {
+                "name": "Clifford Center",
+                "address": "810 Richards St.",
+                "rates": "$3 per half hour, $15 Early Bird (in by 9am out by 5pm)",
+                "hours": "Upper lot 24/7, Lower garage Mon-Fri 6am-6pm",
+                "monthly": "Available - call for rates",
+                "height": "6' (lower garage), no restrictions (upper lot)",
+                "type": "Garage/Lot",
+                "phone": "808-592-7275"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -157.86113617912838,
+                    21.306751733678894
+                ]
+            },
+            "properties": {
+                "name": "Citi Financial Tower",
+                "address": "201 Merchant St.",
+                "rates": "$4 per half hour, $15 Early Bird, $7 Saturday",
+                "hours": "Mon-Fri 5:45am-7pm, Sat 8am-2pm",
+                "monthly": "$260 Non-Tenant Unreserved, $375 Reserved",
+                "height": "6'5\"",
+                "type": "Garage",
+                "phone": "808-509-8600"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -157.86362966093913,
+                    21.310905919491887
+                ]
+            },
+            "properties": {
+                "name": "Hawaii National Bank",
+                "address": "45 North King St.",
+                "rates": "$3 per half hour",
+                "hours": "Mon-Fri 7:00am-6:30pm",
+                "monthly": "Tenants only",
+                "height": "6'3\"",
+                "type": "Garage",
+                "phone": "808-592-7275"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -157.86049319999998,
+                    21.303244324341392
+                ]
+            },
+            "properties": {
+                "name": "Makai Garage",
+                "address": "530 Halekauwila St.",
+                "rates": "$2/hour first 2 hours, $4/hour thereafter",
+                "hours": "Mon-Fri 7am-5pm - 77 stalls",
+                "monthly": "N/A",
+                "height": "7 ft",
+                "type": "Garage",
+                "phone": "808-586-0343"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -157.8584,
+                    21.3063
+                ]
+            },
+            "properties": {
+                "name": "Iolani Palace",
+                "address": "364 S. King St.",
+                "rates": "$2/hour first 2 hours, $4/hour thereafter",
+                "hours": "Mon-Fri 6am-6pm - 44 stalls",
+                "monthly": "Employees only - waitlist",
+                "height": "6 ft",
+                "type": "Garage",
+                "phone": "808-586-0343"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -157.8554972275422,
+                    21.30571936129753
+                ]
+            },
+            "properties": {
+                "name": "Kalanimoku",
+                "address": "1151 Punchbowl St.",
+                "rates": "$2/hour first 2 hours, $4/hour thereafter",
+                "hours": "Mon-Fri 6am-5pm - 47 stalls",
+                "monthly": "Employees only - waitlist",
+                "height": "9'6\"",
+                "type": "Garage",
+                "phone": "808-586-0343"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -157.85577181131927,
+                    21.30771824381528
+                ]
+            },
+            "properties": {
+                "name": "Kinau Hale Building",
+                "address": "1250 Punchbowl & Beretania St.",
+                "rates": "$2/hour first 2 hours, $4/hour thereafter",
+                "hours": "24 Hours - 62 stalls",
+                "monthly": "Employees only - waitlist",
+                "height": "7 ft",
+                "type": "Garage",
+                "phone": "808-586-0343"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -157.86243913689222,
+                    21.306176183891672
+                ]
+            },
+            "properties": {
+                "name": "Harbour Square",
+                "address": "700 Richards St.",
+                "rates": "$4/half hour, $8/hour, $25 all day",
+                "hours": "After hours: $5 (4pm-7am), Weekend: $5",
+                "monthly": "$260 unreserved, $425 reserved",
+                "height": "N/A",
+                "type": "Garage",
+                "phone": ""
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -157.86399994007462,
+                    21.310563228567943
+                ]
+            },
+            "properties": {
+                "name": "888 Nuuanu Ave",
+                "address": "888 Nuuanu Ave",
+                "rates": "$3 per half hour",
+                "hours": "24/7",
+                "monthly": "$287.96",
+                "height": "Open lot, no height restrictions",
+                "type": "Open lot",
+                "phone": "808-592-7275"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -157.85666313351632,
+                    21.3094429391023
+                ]
+            },
+            "properties": {
+                "name": "Saint Andrew's Cathedral",
+                "address": "224 Queen Emma Square",
+                "rates": "$6/hour, $20 Early Bird (in by 9am out by 5pm)",
+                "hours": "24/7, Evening flat rate $5 (5pm-7am), Weekend $5",
+                "monthly": "Available - call for rates",
+                "height": "N/A",
+                "type": "Lot",
+                "phone": "808-592-7275"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -157.86305753944043,
+                    21.311318070548342
+                ]
+            },
+            "properties": {
+                "name": "1021 Smith St.",
+                "address": "1021 Smith St.",
+                "rates": "$5/hour (5pm-7am), $10 flat rate weekends (7am-5pm)",
+                "hours": "No public parking Mon-Fri 7am-5pm, Public 5pm-7am & weekends",
+                "monthly": "No monthly parking available",
+                "height": "Open lot, no height restrictions",
+                "type": "Open lot",
+                "phone": "808-592-7275"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -157.85583958561816,
+                    21.308515993230685
+                ]
+            },
+            "properties": {
+                "name": "State Capitol",
+                "address": "415 S. Beretania St.",
+                "rates": "$2/hour first 2 hours, $4/hour thereafter",
+                "hours": "Mon-Fri 6am-5pm - 59 stalls",
+                "monthly": "N/A",
+                "height": "8'3\" / 8'5\"",
+                "type": "Garage",
+                "phone": "808-586-0343"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -157.85520469531966,
+                    21.30940725125905
+                ]
+            },
+            "properties": {
+                "name": "Vineyard Garage",
+                "address": "1418 Punchbowl St.",
+                "rates": "$2/hour first 2 hours, $4/hour thereafter",
+                "hours": "Mon-Fri 6am-5pm - 47 stalls",
+                "monthly": "N/A",
+                "height": "6'0\"",
+                "type": "Garage",
+                "phone": "808-586-0343"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -157.85954926820924,
+                    21.31023138764372
+                ]
+            },
+            "properties": {
+                "name": "Finance Factors Center",
+                "address": "1164 Bishop St.",
+                "rates": "$3 every 20 minutes",
+                "hours": "Unmanned lot",
+                "monthly": "$345.55 Tenant Reserved, $274.35 Tenant Unreserved",
+                "height": "5'9\"",
+                "type": "Garage",
+                "phone": "808-509-8600"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -157.8593,
+                    21.3082
+                ]
+            },
+            "properties": {
+                "name": "Alii Place",
+                "address": "1099 Alakea St.",
+                "rates": "$0.75/half hour first 1.5 hours, then $1.50/half hour ($21 max)",
+                "hours": "After 5pm: $3 (out by 12am)",
+                "monthly": "$366.49 reserved, $251.31 unreserved, $68.06 motorcycles",
+                "height": "N/A",
+                "type": "Garage",
+                "phone": ""
+            }
+        }
+    ]
+}

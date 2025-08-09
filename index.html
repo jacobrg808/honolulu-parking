@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Downtown Honolulu Parking Map - Find Parking Rates & Locations</title>
+    <meta name="description" content="Interactive map showing downtown Honolulu parking locations, rates, hours, and availability. Find the best parking spots in Honolulu's business district." />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#3b82f6" />
+    <link rel="preconnect" href="https://unpkg.com" />
+    <link rel="preconnect" href="https://nominatim.openstreetmap.org" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <header class="app-header">
+        <h1>Downtown Honolulu Parking</h1>
+        <div class="controls">
+            <input id="searchBox" placeholder="🔍 Search address (press Enter)" aria-label="Search address" />
+            <select id="filterMonthly" aria-label="Filter monthly">
+                <option value="all">All</option>
+                <option value="yes">Monthly Available</option>
+                <option value="no">No Monthly</option>
+            </select>
+            <label class="small">
+                Price ≤
+                <input id="priceMax" type="number" placeholder="max $/hr" min="0" />
+            </label>
+            <button id="resetFilters">Reset</button>
+        </div>
+    </header>
+
+    <main class="layout">
+        <div id="map" tabindex="0" aria-label="Parking map"></div>
+
+        <aside id="infoCard" class="info-card" aria-live="polite">
+            <div id="cardContent">
+                <p class="hint">Click a marker to view parking details.</p>
+            </div>
+            <div class="list-controls">
+                <button id="listToggle">Show list</button>
+            </div>
+        </aside>
+    </main>
+
+    <!-- small list modal -->
+    <div id="listModal" class="modal hidden" role="dialog" aria-modal="true" aria-label="Parking list">
+        <div class="modal-content">
+            <button class="close" id="closeList">✕</button>
+            <h2>Parking Locations</h2>
+            <div id="listContainer"></div>
+        </div>
+    </div>
+
+    <footer class="app-footer">
+        <small>Downtown Honolulu parking information. Rates and availability subject to change.</small>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
