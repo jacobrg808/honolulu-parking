@@ -16,7 +16,7 @@
                 "rates": "$4 per 2 hours (max 6 hours $16)",
                 "hours": "24/7 - 6am-4pm $4/2hr, 4pm-6am $5/hr",
                 "monthly": "No monthly permits available",
-                "height": "Open lot, no height restrictions",
+                "height": "No height limit",
                 "type": "Open lot",
                 "phone": "808-592-7275"
             }
@@ -31,12 +31,12 @@
                 ]
             },
             "properties": {
-                "name": "1188 Maunakea St.",
+                "name": "Diamond Parking Lot",
                 "address": "1188 Maunakea St.",
                 "rates": "$3 per hour",
                 "hours": "24/7",
                 "monthly": "$210 monthly permit",
-                "height": "Open lot, no height restrictions",
+                "height": "No height limit",
                 "type": "Open lot",
                 "phone": "808-592-7275"
             }
@@ -56,7 +56,7 @@
                 "rates": "$4 per hour ($5/hr Fri & Sat after 5pm)",
                 "hours": "24/7",
                 "monthly": "No monthly parking",
-                "height": "Open lot, no height restrictions",
+                "height": "No height limit",
                 "type": "Open lot",
                 "phone": "808-592-7275"
             }
@@ -116,7 +116,7 @@
                 "rates": "$3 per half hour, $48 for 24 hours",
                 "hours": "Mon-Fri 6am-5pm, Early bird $15 (in by 9am out by 6pm)",
                 "monthly": "$275 permit only, $220 monthly special",
-                "height": "N/A",
+                "height": "No height limit",
                 "type": "Garage",
                 "phone": ""
             }
@@ -176,7 +176,7 @@
                 "rates": "$3 per half hour, $15 Early Bird (in by 9am out by 5pm)",
                 "hours": "Upper lot 24/7, Lower garage Mon-Fri 6am-6pm",
                 "monthly": "Available - call for rates",
-                "height": "6' (lower garage), no restrictions (upper lot)",
+                "height": "6'0\" (lower garage), no limit (upper lot)",
                 "type": "Garage/Lot",
                 "phone": "808-592-7275"
             }
@@ -236,7 +236,7 @@
                 "rates": "$2/hour first 2 hours, $4/hour thereafter",
                 "hours": "Mon-Fri 7am-5pm - 77 stalls",
                 "monthly": "N/A",
-                "height": "7 ft",
+                "height": "7'0\"",
                 "type": "Garage",
                 "phone": "808-586-0343"
             }
@@ -256,7 +256,7 @@
                 "rates": "$2/hour first 2 hours, $4/hour thereafter",
                 "hours": "Mon-Fri 6am-6pm - 44 stalls",
                 "monthly": "Employees only - waitlist",
-                "height": "6 ft",
+                "height": "6'0\"",
                 "type": "Garage",
                 "phone": "808-586-0343"
             }
@@ -296,7 +296,7 @@
                 "rates": "$2/hour first 2 hours, $4/hour thereafter",
                 "hours": "24 Hours - 62 stalls",
                 "monthly": "Employees only - waitlist",
-                "height": "7 ft",
+                "height": "7'0\"",
                 "type": "Garage",
                 "phone": "808-586-0343"
             }
@@ -316,7 +316,7 @@
                 "rates": "$4/half hour, $8/hour, $25 all day",
                 "hours": "After hours: $5 (4pm-7am), Weekend: $5",
                 "monthly": "$260 unreserved, $425 reserved",
-                "height": "N/A",
+                "height": "No height limit",
                 "type": "Garage",
                 "phone": ""
             }
@@ -336,7 +336,7 @@
                 "rates": "$3 per half hour",
                 "hours": "24/7",
                 "monthly": "$287.96",
-                "height": "Open lot, no height restrictions",
+                "height": "No height limit",
                 "type": "Open lot",
                 "phone": "808-592-7275"
             }
@@ -356,7 +356,7 @@
                 "rates": "$6/hour, $20 Early Bird (in by 9am out by 5pm)",
                 "hours": "24/7, Evening flat rate $5 (5pm-7am), Weekend $5",
                 "monthly": "Available - call for rates",
-                "height": "N/A",
+                "height": "No height limit",
                 "type": "Lot",
                 "phone": "808-592-7275"
             }
@@ -376,7 +376,7 @@
                 "rates": "$5/hour (5pm-7am), $10 flat rate weekends (7am-5pm)",
                 "hours": "No public parking Mon-Fri 7am-5pm, Public 5pm-7am & weekends",
                 "monthly": "No monthly parking available",
-                "height": "Open lot, no height restrictions",
+                "height": "No height limit",
                 "type": "Open lot",
                 "phone": "808-592-7275"
             }
@@ -456,7 +456,7 @@
                 "rates": "$0.75/half hour first 1.5 hours, then $1.50/half hour ($21 max)",
                 "hours": "After 5pm: $3 (out by 12am)",
                 "monthly": "$366.49 reserved, $251.31 unreserved, $68.06 motorcycles",
-                "height": "N/A",
+                "height": "No height limit",
                 "type": "Garage",
                 "phone": ""
             }

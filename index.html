@@ -4,32 +4,37 @@
 <head>
     <meta charset="utf-8" />
     <title>Downtown Honolulu Parking Map - Find Parking Rates & Locations</title>
-    <meta name="description" content="Interactive map showing downtown Honolulu parking locations, rates, hours, and availability. Find the best parking spots in Honolulu's business district." />
+    <meta name="description"
+        content="Interactive map showing downtown Honolulu parking locations, rates, hours, and availability. Find the best parking spots in Honolulu's business district." />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="theme-color" content="#3b82f6" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🅿️</text></svg>" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="preconnect" href="https://unpkg.com" />
     <link rel="preconnect" href="https://nominatim.openstreetmap.org" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css?v=2" />
 </head>
 
 <body>
     <header class="app-header">
         <h1>Downtown Honolulu Parking</h1>
         <div class="controls">
-            <input id="searchBox" placeholder="🔍 Search address (press Enter)" aria-label="Search address" />
-            <select id="filterMonthly" aria-label="Filter monthly">
-                <option value="all">All</option>
-                <option value="yes">Monthly Available</option>
-                <option value="no">No Monthly</option>
-            </select>
-            <label class="small">
-                Price ≤
-                <input id="priceMax" type="number" placeholder="max $/hr" min="0" />
-            </label>
-            <button id="resetFilters">Reset</button>
+            <div class="filter-chips">
+                <button class="chip" data-filter="price" data-value="3">Under $3/hr</button>
+                <button class="chip" data-filter="price" data-value="5">Under $5/hr</button>
+                <button class="chip" data-filter="monthly" data-value="yes">Monthly Available</button>
+                <button class="chip" data-filter="hours" data-value="24/7">24/7 Open</button>
+                <button class="chip" data-filter="height" data-value="no-limit">No Height Limit</button>
+                <button class="chip" data-filter="type" data-value="garage">Garages Only</button>
+                <button id="resetFilters" class="chip-reset" title="Clear all filters">
+                    <span class="reset-icon">↻</span>
+                </button>
+            </div>
         </div>
     </header>
 
