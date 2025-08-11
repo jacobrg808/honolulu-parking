@@ -1,6 +1,6 @@
 # Downtown Honolulu Parking Map
 
-An interactive web application for finding parking locations, rates, and availability in downtown Honolulu. Built with modern web technologies and featuring a beautiful glassomorphism design.
+A web application that allows users to navigate an interactive map and view information on parking rates in downtown Honolulu.
 
 ## Features
 
@@ -130,57 +130,13 @@ Edit `data/parking.geojson` to add new parking locations:
 }
 ```
 
-### Styling
-
-Modify CSS custom properties in `style.css` to change the color scheme:
-
-```css
-:root {
-    --bg: #f8fafc;           /* Background color */
-    --accent: #3b82f6;       /* Primary accent color */
-    --accent-hover: #2563eb; /* Hover state color */
-    --muted: #64748b;        /* Secondary text color */
-    --border: #e2e8f0;       /* Border color */
-}
-```
-
-## Performance Features
-
-- **Canvas Rendering**: Improved map performance with `preferCanvas: true`
-- **Data Caching**: Parking data is cached to avoid repeated API calls
-- **Efficient Filtering**: Uses JavaScript `Set` for O(1) lookup performance
-- **Optimized DOM**: Minimal DOM manipulation for smooth interactions
-- **Lazy Loading**: Resources loaded only when needed
-
-## Accessibility
-
-- **ARIA Labels**: Proper labeling for screen readers
-- **Keyboard Navigation**: Full keyboard support
-- **Focus Management**: Logical tab order and focus indicators
-- **Semantic HTML**: Proper heading hierarchy and landmarks
-- **Color Contrast**: WCAG compliant color combinations
-
-## Browser Support
-
-- **Chrome**: 88+
-- **Firefox**: 85+
-- **Safari**: 14+
-- **Edge**: 88+
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
 
+- **Hawaii Business Magazine**: Parking information (https://www.hawaiibusiness.com/the-downtown-honolulu-parking-guide-returns-with-new-updates/)
 - **OpenStreetMap**: Map data and tiles
 - **Leaflet**: Interactive mapping library
 - **MarkerCluster**: Efficient marker clustering
@@ -190,7 +146,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 If you encounter any issues or have questions:
 
-1. Check the [Issues](https://github.com/yourusername/honolulu-parking-map/issues) page
+1. Check the [Issues](https://github.com/jacobrg808/honolulu-parking/issues) page
 2. Create a new issue with detailed information
 3. Include browser version and steps to reproduce
 
