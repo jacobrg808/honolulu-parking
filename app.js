@@ -48,12 +48,12 @@ document.readyState === 'loading' ?
 const card = document.getElementById('cardContent');
 
 /**
- * Display parking location details in the info card
+ * Display parking location details in the info card or mobile modal
  * @param {Object} p - Parking properties from GeoJSON
  * @param {Object} latlng - Coordinates for map centering
  */
 function showCard(p, latlng) {
-    card.innerHTML = `
+    const cardHTML = `
         <h3 class="location-title">${escapeHtml(p.name || 'Untitled')}</h3>
         <div class="meta">${escapeHtml(p.address || '')}</div>
         <div class="rate">${escapeHtml(p.rates || 'Rates N/A')}</div>
@@ -66,6 +66,16 @@ function showCard(p, latlng) {
             <button class="btn-primary" onclick="centerTo(${latlng.lat}, ${latlng.lng})">Center Map</button>
             <a class="btn-primary" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(p.address || '')}" >Google Maps</a>
         </div>`;
+    
+    if (isMobile()) {
+        // Show in mobile modal
+        mobileCardContent.innerHTML = cardHTML;
+        mobileCardModal.classList.remove('hidden');
+        closeMobileCard.focus();
+    } else {
+        // Show in desktop sidebar
+        card.innerHTML = cardHTML;
+    }
 }
 
 // Center map on specific location with higher zoom for detail
@@ -78,22 +88,36 @@ function escapeHtml(s) {
     })[c]);
 }
 
-// Modal list functionality for mobile users and accessibility
+// Modal functionality for mobile users and accessibility
 const listToggle = document.getElementById('listToggle');
 const listModal = document.getElementById('listModal');
 const closeList = document.getElementById('closeList');
 const listContainer = document.getElementById('listContainer');
+const mobileCardModal = document.getElementById('mobileCardModal');
+const closeMobileCard = document.getElementById('closeMobileCard');
+const mobileCardContent = document.getElementById('mobileCardContent');
+
+// Check if we're on mobile
+function isMobile() {
+    return window.innerWidth <= 900;
+}
 
 listToggle.addEventListener('click', () => {
     listModal.classList.remove('hidden');
     closeList.focus(); // Accessibility: focus management for screen readers
 });
 closeList.addEventListener('click', () => listModal.classList.add('hidden'));
+closeMobileCard.addEventListener('click', () => mobileCardModal.classList.add('hidden'));
 
-// Allow Escape key to close modal for better UX
+// Allow Escape key to close modals for better UX
 document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && !listModal.classList.contains('hidden')) {
-        listModal.classList.add('hidden');
+    if (e.key === 'Escape') {
+        if (!listModal.classList.contains('hidden')) {
+            listModal.classList.add('hidden');
+        }
+        if (!mobileCardModal.classList.contains('hidden')) {
+            mobileCardModal.classList.add('hidden');
+        }
     }
 });
 
