@@ -53,7 +53,7 @@ const card = document.getElementById('cardContent');
  * @param {Object} latlng - Coordinates for map centering
  */
 function showCard(p, latlng) {
-    const cardHTML = `
+    const detailsHTML = `
         <h3 class="location-title">${escapeHtml(p.name || 'Untitled')}</h3>
         <div class="meta">${escapeHtml(p.address || '')}</div>
         <div class="rate">${escapeHtml(p.rates || 'Rates N/A')}</div>
@@ -61,20 +61,25 @@ function showCard(p, latlng) {
         <div class="meta">Monthly: ${escapeHtml(p.monthly || 'N/A')}</div>
         <div class="meta">Height: ${escapeHtml(p.height || 'N/A')}</div>
         <div class="meta">Type: ${escapeHtml(p.type || 'N/A')}</div>
-        <div class="meta phone">Phone: ${escapeHtml(p.phone || '')}</div>
+        <div class="meta phone">Phone: ${escapeHtml(p.phone || '')}</div>`;
+    
+    if (isMobile()) {
+        // Mobile: Only show Google Maps button (no center map button)
+        const mobileHTML = detailsHTML + `
+        <div class="card-actions">
+            <a class="btn-primary" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(p.address || '')}" >Google Maps</a>
+        </div>`;
+        mobileCardContent.innerHTML = mobileHTML;
+        mobileCardModal.classList.remove('hidden');
+        closeMobileCard.focus();
+    } else {
+        // Desktop: Show both buttons
+        const desktopHTML = detailsHTML + `
         <div class="card-actions">
             <button class="btn-primary" onclick="centerTo(${latlng.lat}, ${latlng.lng})">Center Map</button>
             <a class="btn-primary" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(p.address || '')}" >Google Maps</a>
         </div>`;
-    
-    if (isMobile()) {
-        // Show in mobile modal
-        mobileCardContent.innerHTML = cardHTML;
-        mobileCardModal.classList.remove('hidden');
-        closeMobileCard.focus();
-    } else {
-        // Show in desktop sidebar
-        card.innerHTML = cardHTML;
+        card.innerHTML = desktopHTML;
     }
 }
 
