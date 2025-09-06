@@ -7,7 +7,6 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 // Use marker clustering to handle overlapping markers at lower zoom levels
 const markers = L.markerClusterGroup();
-// Cache parking data to avoid re-fetching during filter operations
 let parkingData = null;
 
 /**
@@ -42,8 +41,11 @@ async function loadParking() {
 }
 
 // Initialize when DOM is ready
-document.readyState === 'loading' ?
-    document.addEventListener('DOMContentLoaded', loadParking) : loadParking();
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', loadParking);
+} else {
+    loadParking();
+}
 
 const card = document.getElementById('cardContent');
 
@@ -88,9 +90,11 @@ function centerTo(lat, lng) { map.setView([lat, lng], 17); }
 
 // Sanitize user content to prevent XSS attacks
 function escapeHtml(s) {
-    return !s ? '' : s.toString().replace(/[&<>"']/g, c => ({
+    if (!s) return '';
+    const escapeMap = {
         '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
-    })[c]);
+    };
+    return s.toString().replace(/[&<>"']/g, c => escapeMap[c]);
 }
 
 // Modal functionality for mobile users and accessibility
@@ -127,11 +131,12 @@ document.addEventListener('keydown', (e) => {
 });
 
 function buildList(features) {
-    listContainer.innerHTML = '';
+    const fragment = document.createDocumentFragment();
+    
     features.forEach(f => {
         const p = f.properties;
         const coords = f.geometry.coordinates;
-        const latlng = [coords[1], coords[0]]; // Convert to Leaflet format once
+        const latlng = [coords[1], coords[0]];
 
         const div = document.createElement('div');
         div.className = 'list-item';
@@ -150,8 +155,11 @@ function buildList(features) {
             showCard(p, { lat: latlng[0], lng: latlng[1] });
             listModal.classList.add('hidden');
         });
-        listContainer.appendChild(div);
+        fragment.appendChild(div);
     });
+    
+    listContainer.innerHTML = '';
+    listContainer.appendChild(fragment);
 }
 
 // Chip-based filtering system - more intuitive than dropdowns for mobile users
