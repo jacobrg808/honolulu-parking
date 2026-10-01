@@ -9,13 +9,12 @@ A web application that allows users to navigate an interactive map and view info
 - **Marker Clustering**: Efficiently handles overlapping markers at different zoom levels
 - **Responsive Design**: Optimized for both desktop and mobile devices
 - **Accessibility**: Full keyboard navigation and screen reader support
-- **Real-time Search**: Instant filtering without page reloads
 - **Location Details**: Comprehensive parking information including rates, hours, and contact details
 - **Google Maps Integration**: Direct links to Google Maps for navigation
 
 ## Design
 
-- **Glassomorphism UI**: Modern frosted glass aesthetic with backdrop blur effects
+- **Glassmorphism UI**: Modern frosted glass aesthetic with backdrop blur effects
 - **Consistent Typography**: Poppins font family throughout the entire application
 - **Smooth Animations**: Polished micro-interactions and hover effects
 - **Visual Feedback**: Dynamic button states and filter indicators
@@ -26,7 +25,7 @@ A web application that allows users to navigate an interactive map and view info
 - **Frontend**: Vanilla JavaScript (ES6+), HTML5, CSS3
 - **Mapping**: Leaflet.js with MarkerCluster plugin
 - **Styling**: CSS Custom Properties, Flexbox, CSS Grid
-- **Performance**: Canvas rendering, data caching, optimized DOM operations
+- **Performance**: Data caching, optimized DOM operations
 - **Accessibility**: ARIA labels, semantic HTML, keyboard navigation
 
 ## Project Structure
@@ -34,7 +33,7 @@ A web application that allows users to navigate an interactive map and view info
 ```
 ├── index.html              # Main HTML file
 ├── app.js                  # JavaScript application logic
-├── style.css               # Stylesheet with glassomorphism design
+├── style.css               # Stylesheet with glassmorphism design
 ├── data/
 │   └── parking.geojson     # Parking location data
 └── README.md               # Project documentation
@@ -51,8 +50,8 @@ A web application that allows users to navigate an interactive map and view info
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/honolulu-parking-map.git
-   cd honolulu-parking-map
+   git clone https://github.com/jacobrg808/honolulu-parking.git
+   cd honolulu-parking
    ```
 
 2. **Start a local server**
@@ -85,7 +84,7 @@ This is a static web application that can be deployed to any web hosting service
 
 Use the filter chips at the top to narrow down parking options:
 
-- **Price Filters**: "Under $3/hr" or "Under $5/hr"
+- **Price Filters**: "$3/hr or less" or "$5/hr or less" (based on the regular hourly rate)
 - **Monthly Parking**: Show only locations with monthly options
 - **24/7 Access**: Filter for round-the-clock availability
 - **Height Restrictions**: Find locations with no height limits
@@ -120,15 +119,30 @@ Edit `data/parking.geojson` to add new parking locations:
   "properties": {
     "name": "Parking Location Name",
     "address": "123 Main St, Honolulu, HI",
-    "rates": "$2.50/hour",
-    "hours": "6 AM - 10 PM",
-    "monthly": "Monthly permits available",
-    "height": "No height restrictions",
-    "type": "Open lot",
-    "phone": "(808) 555-0123"
+    "rates": "$2/hour first 2 hours, $4/hour thereafter",
+    "hours": "Mon-Fri 6am-6pm",
+    "monthly": "$250 monthly permit",
+    "height": "6'8\"",
+    "type": "Garage",
+    "phone": "808-555-0123",
+    "hourly_rate": 4,
+    "monthly_available": true,
+    "open_24_7": false,
+    "clearance_in": 80,
+    "garage": true
   }
 }
 ```
+
+The text fields (`rates`, `hours`, `monthly`, `height`, `type`, `phone`) are shown on the info card as written. The filters use only the structured fields:
+
+| Field | Type | Meaning |
+|-------|------|---------|
+| `hourly_rate` | number or `null` | Regular hourly rate, not an introductory first-hour rate. Convert half-hour or 20-minute prices to per hour. `null` if no rate is published. |
+| `monthly_available` | boolean | Monthly parking is open to the public (not tenants or employees only) |
+| `open_24_7` | boolean | Public parking available around the clock |
+| `clearance_in` | number or `null` | Height clearance in inches; `null` means no height limit |
+| `garage` | boolean | Covered garage rather than an open lot |
 
 ## License
 

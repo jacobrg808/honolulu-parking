@@ -20,19 +20,8 @@ async function loadParking() {
         const geo = await res.json();
         parkingData = geo; // Cache for filter operations
 
-        // Convert GeoJSON features to interactive Leaflet markers
-        L.geoJSON(geo, {
-            pointToLayer: (feature, latlng) => {
-                const m = L.marker(latlng);
-                m.feature = feature; // Preserve feature data for click handlers
-                return m;
-            },
-            onEachFeature: (feature, layer) => {
-                layer.on('click', () => showCard(feature.properties, layer.getLatLng()));
-            }
-        }).eachLayer(l => markers.addLayer(l));
         map.addLayer(markers);
-        buildList(geo.features);
+        render(geo.features);
         updateResetButton(); // Initialize button state
     } catch (error) {
         console.error('Error loading parking data:', error);
@@ -48,13 +37,39 @@ if (document.readyState === 'loading') {
 }
 
 const card = document.getElementById('cardContent');
+const cardHint = card.innerHTML;
+let selectedFeature = null; // Location shown in the desktop info card
+
+/**
+ * Render markers and the list for the given features
+ * GeoJSON uses [lng, lat], Leaflet uses [lat, lng]
+ */
+function render(features) {
+    markers.clearLayers();
+    features.forEach(f => {
+        const [lng, lat] = f.geometry.coordinates;
+        const mk = L.marker([lat, lng]);
+        mk.on('click', () => showCard(f));
+        markers.addLayer(mk);
+    });
+    buildList(features);
+
+    // Clear the desktop card if its location was filtered out
+    if (selectedFeature && !features.includes(selectedFeature)) {
+        selectedFeature = null;
+        card.innerHTML = cardHint;
+    }
+}
 
 /**
  * Display parking location details in the info card or mobile modal
- * @param {Object} p - Parking properties from GeoJSON
- * @param {Object} latlng - Coordinates for map centering
+ * @param {Object} f - GeoJSON feature
  */
-function showCard(p, latlng) {
+function showCard(f) {
+    const p = f.properties;
+    const [lng, lat] = f.geometry.coordinates;
+    // Coordinates are unambiguous; addresses lack a city and can resolve elsewhere
+    const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`;
     const detailsHTML = `
         <h3 class="location-title">${escapeHtml(p.name || 'Untitled')}</h3>
         <div class="meta">${escapeHtml(p.address || '')}</div>
@@ -69,7 +84,7 @@ function showCard(p, latlng) {
         // Mobile: Only show Google Maps button (no center map button)
         const mobileHTML = detailsHTML + `
         <div class="card-actions">
-            <a class="btn-primary" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(p.address || '')}" >Google Maps</a>
+            <a class="btn-primary" target="_blank" rel="noopener" href="${mapsUrl}">Google Maps</a>
         </div>`;
         mobileCardContent.innerHTML = mobileHTML;
         mobileCardModal.classList.remove('hidden');
@@ -78,10 +93,12 @@ function showCard(p, latlng) {
         // Desktop: Show both buttons
         const desktopHTML = detailsHTML + `
         <div class="card-actions">
-            <button class="btn-primary" onclick="centerTo(${latlng.lat}, ${latlng.lng})">Center Map</button>
-            <a class="btn-primary" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(p.address || '')}" >Google Maps</a>
+            <button class="btn-primary" id="centerMap">Center Map</button>
+            <a class="btn-primary" target="_blank" rel="noopener" href="${mapsUrl}">Google Maps</a>
         </div>`;
         card.innerHTML = desktopHTML;
+        selectedFeature = f;
+        document.getElementById('centerMap').addEventListener('click', () => centerTo(lat, lng));
     }
 }
 
@@ -135,8 +152,7 @@ function buildList(features) {
     
     features.forEach(f => {
         const p = f.properties;
-        const coords = f.geometry.coordinates;
-        const latlng = [coords[1], coords[0]];
+        const [lng, lat] = f.geometry.coordinates;
 
         const div = document.createElement('div');
         div.className = 'list-item';
@@ -151,8 +167,8 @@ function buildList(features) {
             </div>`;
 
         div.addEventListener('click', () => {
-            map.setView(latlng, 17);
-            showCard(p, { lat: latlng[0], lng: latlng[1] });
+            centerTo(lat, lng);
+            showCard(f);
             listModal.classList.add('hidden');
         });
         fragment.appendChild(div);
@@ -211,36 +227,25 @@ function applyFilters() {
             const [filterType, filterValue] = filterId.split(':');
             switch (filterType) {
                 case 'price':
-                    // Extract first dollar amount from rate string (basic parsing)
-                    const priceMatch = (p.rates || '').match(/\$([0-9]+(?:\.[0-9]+)?)/);
-                    if (priceMatch && Number(priceMatch[1]) > Number(filterValue)) return false;
+                    // Locations without a published hourly rate never match a price filter
+                    if (p.hourly_rate == null || p.hourly_rate > Number(filterValue)) return false;
                     break;
                 case 'monthly':
-                    if (filterValue === 'yes' && !/monthly|permit|available/i.test(p.monthly || '')) return false;
+                    if (!p.monthly_available) return false;
                     break;
                 case 'hours':
-                    if (filterValue === '24/7' && !/24\/7|24 hours/i.test(p.hours || '')) return false;
+                    if (!p.open_24_7) return false;
                     break;
                 case 'height':
-                    if (filterValue === 'no-limit' && !/no height|open lot|no restrictions/i.test(p.height || '')) return false;
+                    if (p.clearance_in != null) return false; // null means no height limit
                     break;
                 case 'type':
-                    if (filterValue === 'garage' && !/garage/i.test(p.type || '')) return false;
+                    if (!p.garage) return false;
                     break;
             }
         }
         return true;
     });
 
-    // Update map markers with filtered results
-    markers.clearLayers();
-    features.forEach(f => {
-        const coords = f.geometry.coordinates;
-        const latlng = [coords[1], coords[0]]; // GeoJSON uses [lng, lat], Leaflet uses [lat, lng]
-        const mk = L.marker(latlng);
-        mk.feature = f;
-        mk.on('click', () => showCard(f.properties, { lat: latlng[0], lng: latlng[1] }));
-        markers.addLayer(mk);
-    });
-    buildList(features); // Update list modal as well
+    render(features);
 }
