@@ -5,25 +5,25 @@ A web application that allows users to navigate an interactive map and view info
 ## Features
 
 - **Interactive Map**: Powered by Leaflet with OpenStreetMap tiles
+- **Price Markers**: Each spot shows its hourly rate on the map, color-coded by price
 - **Smart Filtering**: Filter by price, monthly availability, hours, height restrictions, and garage type
-- **Marker Clustering**: Efficiently handles overlapping markers at different zoom levels
-- **Responsive Design**: Optimized for both desktop and mobile devices
+- **Sorted List**: All spots listed cheapest first, linked to the map
+- **Responsive Design**: List sidebar on desktop, draggable bottom sheet on mobile
 - **Accessibility**: Full keyboard navigation and screen reader support
 - **Location Details**: Comprehensive parking information including rates, hours, and contact details
-- **Google Maps Integration**: Direct links to Google Maps for navigation
+- **Directions and Calling**: One tap to Google Maps directions or to call the operator
 
 ## Design
 
-- **Glassmorphism UI**: Modern frosted glass aesthetic with backdrop blur effects
+- **Map-first layout**: Clean white surfaces and a muted basemap so prices stand out
 - **Consistent Typography**: Poppins font family throughout the entire application
-- **Smooth Animations**: Polished micro-interactions and hover effects
-- **Visual Feedback**: Dynamic button states and filter indicators
-- **Professional Color Scheme**: Carefully chosen colors for optimal readability
+- **Price tiers**: Green for $3/hr or less, amber for $5/hr or less, red above that
+- **Visual Feedback**: Selected and hovered spots are highlighted on both the map and the list
 
 ## Technologies
 
 - **Frontend**: Vanilla JavaScript (ES6+), HTML5, CSS3
-- **Mapping**: Leaflet.js with MarkerCluster plugin
+- **Mapping**: Leaflet.js
 - **Styling**: CSS Custom Properties, Flexbox, CSS Grid
 - **Performance**: Data caching, optimized DOM operations
 - **Accessibility**: ARIA labels, semantic HTML, keyboard navigation
@@ -33,7 +33,7 @@ A web application that allows users to navigate an interactive map and view info
 ```
 ├── index.html              # Main HTML file
 ├── app.js                  # JavaScript application logic
-├── style.css               # Stylesheet with glassmorphism design
+├── style.css               # Stylesheet
 ├── data/
 │   └── parking.geojson     # Parking location data
 └── README.md               # Project documentation
@@ -92,16 +92,15 @@ Use the filter chips at the top to narrow down parking options:
 
 ### Viewing Details
 
-- **Click any marker** on the map to view detailed information
-- **Use the list view** (mobile) to browse all locations
-- **Center the map** on any location for a closer look
-- **Open in Google Maps** for turn-by-turn navigation
+- **Click any price marker** or list row to view detailed information
+- **On mobile**, drag the sheet handle up or down, or tap it to expand; tap the map to lower it
+- **Directions** opens Google Maps for turn-by-turn navigation
 
 ### Keyboard Navigation
 
 - **Tab**: Navigate through interactive elements
 - **Enter/Space**: Activate buttons and filters
-- **Escape**: Close modal dialogs
+- **Escape**: Close the detail view (or lower the sheet on mobile)
 
 ## Customization
 
@@ -153,7 +152,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Hawaii Business Magazine**: Parking information (https://www.hawaiibusiness.com/the-downtown-honolulu-parking-guide-returns-with-new-updates/)
 - **OpenStreetMap**: Map data and tiles
 - **Leaflet**: Interactive mapping library
-- **MarkerCluster**: Efficient marker clustering
 - **Poppins Font**: Typography by Google Fonts
 
 ## Support
