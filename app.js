@@ -227,8 +227,8 @@ function applyFilters() {
             const [filterType, filterValue] = filterId.split(':');
             switch (filterType) {
                 case 'price':
-                    // Locations without a published hourly rate never match a price filter
-                    if (p.hourly_rate == null || p.hourly_rate > Number(filterValue)) return false;
+                    // Locations without a published hourly rate (e.g. "Varies") match every price filter
+                    if (p.hourly_rate != null && p.hourly_rate > Number(filterValue)) return false;
                     break;
                 case 'monthly':
                     if (!p.monthly_available) return false;

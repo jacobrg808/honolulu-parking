@@ -138,7 +138,7 @@ The text fields (`rates`, `hours`, `monthly`, `height`, `type`, `phone`) are sho
 
 | Field | Type | Meaning |
 |-------|------|---------|
-| `hourly_rate` | number or `null` | Regular hourly rate, not an introductory first-hour rate. Convert half-hour or 20-minute prices to per hour. `null` if no rate is published. |
+| `hourly_rate` | number or `null` | Regular hourly rate, not an introductory first-hour rate. Convert half-hour or 20-minute prices to per hour. `null` if no rate is published (e.g. "Varies"); these match every price filter. |
 | `monthly_available` | boolean | Monthly parking is open to the public (not tenants or employees only) |
 | `open_24_7` | boolean | Public parking available around the clock |
 | `clearance_in` | number or `null` | Height clearance in inches; `null` means no height limit |
